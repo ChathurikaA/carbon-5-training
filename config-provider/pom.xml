@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2016, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.wso2</groupId>
+        <artifactId>wso2</artifactId>
+        <version>5</version>
+    </parent>
+
+    <groupId>org.wso2.carbon.training.config</groupId>
+    <artifactId>org.wso2.carbon.training.config.parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>WSO2 Carbon Configuration Training - Parent</name>
+
+    <modules>
+        <module>org.wso2.carbon.training.config.bundle</module>
+        <module>org.wso2.carbon.training.config.feature</module>
+    </modules>
+
+    <scm>
+        <url>https://github.com/wso2/carbon-deployment.git</url>
+        <developerConnection>scm:git:https://github.com/wso2/carbon-deployment.git</developerConnection>
+        <connection>scm:git:https://github.com/wso2/carbon-deployment.git</connection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.wso2.carbon.maven</groupId>
+                    <artifactId>carbon-feature-plugin</artifactId>
+                    <version>${carbon.feature.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.wso2.carbon</groupId>
+                    <artifactId>org.wso2.carbon.extensions.configuration.maven.plugin</artifactId>
+                    <version>${carbon.kernel.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.core</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.orbit.org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${org.snakeyaml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.training.config</groupId>
+                <artifactId>org.wso2.carbon.training.config.bundle</artifactId>
+                <version>${carbon.config.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ops4j.pax.logging</groupId>
+                <artifactId>pax-logging-api</artifactId>
+                <version>${pax.logging.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.eclipse.osgi</groupId>
+                <artifactId>org.eclipse.osgi.services</artifactId>
+                <version>${equinox.osgi.services.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <properties>
+        <carbon.config.version>1.0.0-SNAPSHOT</carbon.config.version>
+        <carbon.config.pkg.export.version>5.0.0</carbon.config.pkg.export.version>
+
+        <carbon.kernel.version>5.2.0-SNAPSHOT</carbon.kernel.version>
+        <carbon.feature.plugin.version>3.0.0</carbon.feature.plugin.version>
+        <org.snakeyaml.version>1.16.0.wso2v1</org.snakeyaml.version>
+
+        <!-- OSGi API dependency versions -->
+        <osgi.core.api.version>6.0.0</osgi.core.api.version>
+        <equinox.osgi.services.version>3.4.0.v20140312-2051</equinox.osgi.services.version>
+
+        <carbon.kernel.import.version.range>[5.0.0, 6.0.0)</carbon.kernel.import.version.range>
+        <osgi.framework.import.version.range>[1.8.0, 2.0.0)</osgi.framework.import.version.range>
+        <slf4j.logging.import.version.range>[1.7.1, 2.0.0)</slf4j.logging.import.version.range>
+        <org.snakeyaml.import.version.range>[1.16.0,2.0.0)</org.snakeyaml.import.version.range>
+
+        <pax.logging.api.version>1.8.4</pax.logging.api.version>
+
+    </properties>
+
+</project>
